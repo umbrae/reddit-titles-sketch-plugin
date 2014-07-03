@@ -1,5 +1,5 @@
-// Get a design quote from quotesondesign.com within the Sketch App by @nodesolomon
-// Thanks to Chris Coyer for making the API available
+// Get a reddit title from reddit!
+// Thanks to nodesolomon for the original source
 
 // Useful function to get json data from url
 function getJSON (url) {
@@ -9,8 +9,8 @@ function getJSON (url) {
 }
 
 // Get A Quote
-var QOD = getJSON("http://quotesondesign.com/api/3.0/api-3.0.json");
+var link = getJSON("http://www.reddit.com/random.json?limit=1");
 
 // Show Quote
 var app = [NSApplication sharedApplication];
-[app displayDialog: QOD.quote withTitle:"Quote by" + " " + QOD.author ]
+[app displayDialog: link[0].data.children[0].data.title withTitle:"By" + " " + link[0].data.children[0].data.author ]
